@@ -12,7 +12,7 @@
 	<groupId>net.canadensys</groupId>
 	<artifactId>canadensys-web-core</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>Canadensys web core</name>
 	<description>The Canadensys web core library</description>
 	<url>http://canadensys.net</url>
