@@ -2,25 +2,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
+		<groupId>net.canadensys</groupId>
+		<artifactId>canadensys-web-core-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.canadensys</groupId>
-	<artifactId>canadensys-web-core-parent</artifactId>
+	<artifactId>canadensys-web-core</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Canadensys web core Parent Project</name>
+	<packaging>jar</packaging>
+	<name>Canadensys web core</name>
 	<description>The Canadensys web core library</description>
-	
-	<modules>
-		<module>canadensys-web-core</module>
-		<module>canadensys-webapp-core</module>
-	</modules>
-	
 	<url>http://canadensys.net</url>
 	<licenses>
 		<license>

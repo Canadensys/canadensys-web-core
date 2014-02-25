@@ -2,25 +2,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
+		<groupId>net.canadensys</groupId>
+		<artifactId>canadensys-web-core-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.canadensys</groupId>
-	<artifactId>canadensys-web-core-parent</artifactId>
+	<artifactId>canadensys-webapp-core</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Canadensys web core Parent Project</name>
-	<description>The Canadensys web core library</description>
-	
-	<modules>
-		<module>canadensys-web-core</module>
-		<module>canadensys-webapp-core</module>
-	</modules>
-	
+	<packaging>war</packaging>
+	<name>Canadensys webapp core</name>
+	<description>The Canadensys webapp core library</description>
 	<url>http://canadensys.net</url>
 	<licenses>
 		<license>
@@ -59,58 +53,12 @@
 		<!-- maven-compiler-plugin config -->
 		<maven.compiler.source>6</maven.compiler.source>
 		<maven.compiler.target>6</maven.compiler.target>
-		
-		<canadensys-core.version>1.7-SNAPSHOT</canadensys-core.version>
-		<freemarker.version>2.3.20</freemarker.version>
-		<spring.version>3.2.8.RELEASE</spring.version>
-		<reflections.version>0.9.9-RC1</reflections.version>
 	</properties>
 
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
 	
-	<dependencies>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Apache lang3 -->
-		<dependency>
-			<groupId>net.canadensys</groupId>
-			<artifactId>canadensys-core</artifactId>
-			<version>${canadensys-core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>${freemarker.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-context-support</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.reflections</groupId>
-		    <artifactId>reflections</artifactId>
-		    <version>${reflections.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
