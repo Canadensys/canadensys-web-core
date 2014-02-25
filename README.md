@@ -1,7 +1,11 @@
 canadensys-web-core
 ===================
+Canadensys web core library.
 
-canadensys-web-core
+Artifacts:
+
+* canadensys-web-core: jar library 
+* canadensys-webapp-core: webapp folder built as war file 
 
 Code Status
 -----------
