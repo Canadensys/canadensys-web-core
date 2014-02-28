@@ -54,6 +54,25 @@ public class FreemarkerURLHelper {
 	}
 	
 	/**
+	 * Replace or add query parameters in the current request and return the new query part of the request.
+	 * @param hr
+	 * @param params array of name/value like params[0]="name" and params[1] = "values". Length of the array
+	 * must be even.
+	 * @return query part only e.g. view=table&filter=auto or null if the params array is odd.
+	 */
+	public static String replaceCurrentQueryParams(HttpRequestHashModel hr, String ... params){
+		UriComponentsBuilder bldr = ServletUriComponentsBuilder.fromRequest(hr.getRequest());
+		
+		if(params.length%2 != 0){
+			return null;
+		}
+		for(int i=0;i<params.length;i+=2){
+			bldr.replaceQueryParam(params[i],params[i+1]);
+		}
+		return bldr.build().getQuery();
+	}
+	
+	/**
 	 * Build a i18n resource path from a resource name.
 	 * This function relies on I18nTranslationHandler.
 	 * The returned resource path starts with the language.
@@ -103,19 +122,6 @@ public class FreemarkerURLHelper {
 			path += "?"+hr.getRequest().getQueryString();
 		}
 		return path;
-	}
-	
-	/**
-	 * Replace or add a query parameter to the provided uri.
-	 * @param uri
-	 * @param name
-	 * @param value
-	 * @return
-	 */
-	public static String replaceQueryParameter(String uri, String name, String value){
-		UriComponentsBuilder bldr = UriComponentsBuilder.fromUriString(uri);
-		bldr.replaceQueryParam(name, value);
-		return bldr.build().toUriString();
 	}
 	
 	/**
