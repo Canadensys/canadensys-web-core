@@ -13,10 +13,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import freemarker.ext.servlet.HttpRequestHashModel;
 
 /**
- * Candidate for future canadensys-web-core library
  * Helper class to manage URL from Freemarker HttpRequestHashModel in Servlet environment.
  * Wrap the class with freemarker.ext.beans.BeansWrapper
- * In your template use something like : ${URLHelper.getURL(Request,"lang","en")}
+ * In your template use something like : ${URLHelper.getURLReplaceQueryParam(Request,"lang","en")}
  * @author canadensys
  *
  */
@@ -30,7 +29,7 @@ public class FreemarkerURLHelper {
 	
 	/**
 	 * Get absolute URL from HttpRequestHashModel and add or change a query string parameter.
-	 * @param hr HttpRequestHashModel from Freemarker template
+	 * @param hr HttpRequestHashModel from Freemarker template (variable Request)
 	 * @param name query string parameter to add or change
 	 * @param value value of the query string parameter
 	 * @return absolute URL as String
@@ -43,7 +42,7 @@ public class FreemarkerURLHelper {
 	
 	/**
 	 * Replace or add a query parameter in the current request and return the new query part of the request.
-	 * @param hr
+	 * @param hr HttpRequestHashModel from Freemarker template (variable Request)
 	 * @param name query string parameter to add or change
 	 * @param value value of the query string parameter
 	 * @return query part only e.g. view=table&filter=auto
@@ -54,6 +53,15 @@ public class FreemarkerURLHelper {
 		return bldr.build().getQuery();
 	}
 	
+	/**
+	 * Build a i18n resource path from a resource name.
+	 * This function relies on I18nTranslationHandler.
+	 * The returned resource path starts with the language.
+	 * e.g. toI18nResource("en", "search) produces "/en/search"
+	 * @param lang
+	 * @param resourceName
+	 * @return resource path or null if no translation format could be found.
+	 */
 	public static String toI18nResource(String lang, String resourceName){
 		return I18nUrlBuilder.generateI18nResourcePath(lang,i18NTranslationHandler.getTranslationFormat(resourceName),(String)null);
 	}
@@ -72,6 +80,7 @@ public class FreemarkerURLHelper {
 	/**
 	 * 
 	 * @param hr Request object
+	 * @param currentLanguage
 	 * @param resourceName
 	 * @param params
 	 * @return
