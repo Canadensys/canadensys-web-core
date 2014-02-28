@@ -32,10 +32,10 @@ public class FreemarkerURLHelper {
 	 * Get absolute URL from HttpRequestHashModel and add or change a query string parameter.
 	 * @param hr HttpRequestHashModel from Freemarker template
 	 * @param name query string parameter to add or change
-	 * @param value Value of the query string parameter
+	 * @param value value of the query string parameter
 	 * @return absolute URL as String
 	 */
-	public static String getURL(HttpRequestHashModel hr, String name, String value){
+	public static String getURLReplaceQueryParam(HttpRequestHashModel hr, String name, String value){
 		UriComponentsBuilder bldr = ServletUriComponentsBuilder.fromRequest(hr.getRequest());
 		bldr.replaceQueryParam(name,value);
 		return bldr.build().toUriString();
@@ -44,9 +44,9 @@ public class FreemarkerURLHelper {
 	/**
 	 * Replace or add a query parameter in the current request and return the new query part of the request.
 	 * @param hr
-	 * @param name
-	 * @param value query part only e.g. view=table&filter=auto
-	 * @return
+	 * @param name query string parameter to add or change
+	 * @param value value of the query string parameter
+	 * @return query part only e.g. view=table&filter=auto
 	 */
 	public static String replaceCurrentQueryParam(HttpRequestHashModel hr, String name, String value){
 		UriComponentsBuilder bldr = ServletUriComponentsBuilder.fromRequest(hr.getRequest());

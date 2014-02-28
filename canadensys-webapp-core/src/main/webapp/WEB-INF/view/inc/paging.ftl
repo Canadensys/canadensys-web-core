@@ -22,25 +22,25 @@
 		<#if (p <= 1)>
 			<span class="previous_page disabled">«</span>
 		<#else>
-			<a class="previous_page" href="${URLHelper.getURL(Request,"page",(p-1)?c)}" rel="prev">«</a>
+			<a class="previous_page" href="${URLHelper.getURLReplaceQueryParam(Request,"page",(p-1)?c)}" rel="prev">«</a>
 		</#if>
 		<#if !(interval?seq_contains(1))>
-		 <a href="${URLHelper.getURL(Request,"page","1")}">1</a><span class="gap">...</span><#rt>
+		 <a href="${URLHelper.getURLReplaceQueryParam(Request,"page","1")}">1</a><span class="gap">...</span><#rt>
 		</#if>
 		<#list interval as page>
 				<#if page=p>
 				 <em class="current">${page}</em> <#t>
 				<#else>
-				 <a href="${URLHelper.getURL(Request,"page",page?c)}">${page}</a> <#t>
+				 <a href="${URLHelper.getURLReplaceQueryParam(Request,"page",page?c)}">${page}</a> <#t>
 				</#if>
 		</#list>
 		<#if !(interval?seq_contains(size))>
-		 <span class="gap">...</span><a href="${URLHelper.getURL(Request,"page",size?c)}">${size}</a><#lt>
+		 <span class="gap">...</span><a href="${URLHelper.getURLReplaceQueryParam(Request,"page",size?c)}">${size}</a><#lt>
 		</#if>
 		<#if (p == size)>
 			<span class="next_page disabled">»</span>
 		<#else>
-			<a class="next_page" href="${URLHelper.getURL(Request,"page",(p+1)?c)}" rel="next">»</a>
+			<a class="next_page" href="${URLHelper.getURLReplaceQueryParam(Request,"page",(p+1)?c)}" rel="next">»</a>
 		</#if>
 
 		</div>
