@@ -58,5 +58,17 @@ public class FreemarkerURLHelperTest {
 		url = FreemarkerURLHelper.replaceCurrentQueryParams(hr, "test");
 		assertNull(url);
 	}
+	
+	@Test
+	public void testGetURLRemoveQueryParamQueryParams(){
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setMethod("GET");
+		request.setRequestURI("/resources/uom-occurrence");
+		request.setQueryString("test=1&test2=1&test3=1");
+		HttpRequestHashModel hr = new HttpRequestHashModel(request,
+				ObjectWrapper.DEFAULT_WRAPPER);
 
+		String url = FreemarkerURLHelper.getURLRemoveQueryParam(hr, "test");
+		assertEquals("http://localhost/resources/uom-occurrence?test2=1&test3=1", url);
+	}
 }

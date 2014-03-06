@@ -11,6 +11,11 @@ Code Status
 -----------
 [![Build Status](https://travis-ci.org/Canadensys/canadensys-web-core.png)](https://travis-ci.org/Canadensys/canadensys-web-core)
 
+Freemaker templates
+-------------------
+[Freemarker templates](https://github.com/Canadensys/canadensys-web-core/tree/master/canadensys-webapp-core/src/main/webapp/WEB-INF/view/inc) including
+utility functions, Google Analytics support and paging support.
+
 Usage
 -----
 

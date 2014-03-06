@@ -41,6 +41,18 @@ public class FreemarkerURLHelper {
 	}
 	
 	/**
+	 * Get absolute URL from HttpRequestHashModel and remove a query string parameter.
+	 * @param hr from Freemarker template (variable Request)
+	 * @param name query string parameter to remove
+	 * @return absolute URL as String
+	 */
+	public static String getURLRemoveQueryParam(HttpRequestHashModel hr, String name){
+		UriComponentsBuilder bldr = ServletUriComponentsBuilder.fromRequest(hr.getRequest());
+		bldr.replaceQueryParam(name);
+		return bldr.build().toUriString();
+	}
+	
+	/**
 	 * Replace or add a query parameter in the current request and return the new query part of the request.
 	 * @param hr HttpRequestHashModel from Freemarker template (variable Request)
 	 * @param name query string parameter to add or change
