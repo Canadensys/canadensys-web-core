@@ -59,8 +59,11 @@ public class FreemarkerURLHelperTest {
 		assertNull(url);
 	}
 	
+	/**
+	 * Test different functions to remove query parameters.
+	 */
 	@Test
-	public void testGetURLRemoveQueryParamQueryParams(){
+	public void testRemoveQueryParamQueryParams(){
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		request.setMethod("GET");
 		request.setRequestURI("/resources/uom-occurrence");
@@ -68,7 +71,15 @@ public class FreemarkerURLHelperTest {
 		HttpRequestHashModel hr = new HttpRequestHashModel(request,
 				ObjectWrapper.DEFAULT_WRAPPER);
 
+		//using getURLRemoveQueryParam
 		String url = FreemarkerURLHelper.getURLRemoveQueryParam(hr, "test");
 		assertEquals("http://localhost/resources/uom-occurrence?test2=1&test3=1", url);
+		
+		//using replaceCurrentQueryParams
+		url = FreemarkerURLHelper.replaceCurrentQueryParams(hr, "test","");
+		assertEquals("test2=1&test3=1", url);
+		
+		url = FreemarkerURLHelper.replaceCurrentQueryParams(hr, "test2",null);
+		assertEquals("test=1&test3=1", url);
 	}
 }

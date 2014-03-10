@@ -66,7 +66,8 @@ public class FreemarkerURLHelper {
 	}
 	
 	/**
-	 * Replace or add query parameters in the current request and return the new query part of the request.
+	 * Replace, add or remove query parameters in the current request and return the new query part of the request.
+	 * You can remove a query parameter by providing an empty string or null as value.
 	 * @param hr
 	 * @param params array of name/value like params[0]="name" and params[1] = "values". Length of the array
 	 * must be even.
@@ -79,7 +80,13 @@ public class FreemarkerURLHelper {
 			return null;
 		}
 		for(int i=0;i<params.length;i+=2){
-			bldr.replaceQueryParam(params[i],params[i+1]);
+			//if the value is blank, remove the parameter
+			if(StringUtils.isBlank(params[i+1])){
+				bldr.replaceQueryParam(params[i]);
+			}
+			else{
+				bldr.replaceQueryParam(params[i],params[i+1]);
+			}
 		}
 		return bldr.build().getQuery();
 	}
