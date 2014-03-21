@@ -59,11 +59,6 @@
 		<!-- maven-compiler-plugin config -->
 		<maven.compiler.source>6</maven.compiler.source>
 		<maven.compiler.target>6</maven.compiler.target>
-		
-		<canadensys-core.version>1.7-SNAPSHOT</canadensys-core.version>
-		<freemarker.version>2.3.20</freemarker.version>
-		<spring.version>3.2.8.RELEASE</spring.version>
-		<reflections.version>0.9.9-RC1</reflections.version>
 	</properties>
 
 	<prerequisites>
@@ -71,39 +66,6 @@
 	</prerequisites>
 	
 	<dependencies>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Apache lang3 -->
-		<dependency>
-			<groupId>net.canadensys</groupId>
-			<artifactId>canadensys-core</artifactId>
-			<version>${canadensys-core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>${freemarker.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-context-support</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.reflections</groupId>
-		    <artifactId>reflections</artifactId>
-		    <version>${reflections.version}</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
