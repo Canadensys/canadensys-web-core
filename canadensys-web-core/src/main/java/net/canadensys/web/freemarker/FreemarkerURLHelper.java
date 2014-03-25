@@ -2,6 +2,7 @@ package net.canadensys.web.freemarker;
 
 import java.util.Locale;
 
+import net.canadensys.web.QueryStringBuilder;
 import net.canadensys.web.i18n.I18nUrlBuilder;
 import net.canadensys.web.i18n.annotation.I18nTranslationHandler;
 
@@ -38,6 +39,14 @@ public class FreemarkerURLHelper {
 		UriComponentsBuilder bldr = ServletUriComponentsBuilder.fromRequest(hr.getRequest());
 		bldr.replaceQueryParam(name,value);
 		return bldr.build().toUriString();
+	}
+	
+	/**
+	 * Get a new instance of QueryStringBuilder.
+	 * @return
+	 */
+	public static QueryStringBuilder newQueryStringBuilder(){
+		return new QueryStringBuilder();
 	}
 	
 	/**
