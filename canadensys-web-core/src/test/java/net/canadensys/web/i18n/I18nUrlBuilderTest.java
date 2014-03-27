@@ -27,6 +27,9 @@ public class I18nUrlBuilderTest {
 		
 		url = I18nUrlBuilder.generateI18nResourcePath("fr", i18nTranslation.getTranslationFormat(RESOURCES_RESOURCE_KEY), "2");
 		assertEquals("/fr/ressources_fr/2",url);
+		
+		url = I18nUrlBuilder.generateI18nResourcePath("fr", i18nTranslation.getTranslationFormat(RESOURCES_RESOURCE_KEY), "2 3");
+		assertEquals("/fr/ressources_fr/2%203",url);
 	}
 	
 	/**
@@ -34,6 +37,7 @@ public class I18nUrlBuilderTest {
 	 * @author cgendreau
 	 *
 	 */
+	@SuppressWarnings("unused")
 	private static class I18NTestClass{
 		@I18nTranslation(resourceName=RESOURCES_RESOURCE_KEY,translateFormat="resources/{}")
 		public void emptyMethod(){}

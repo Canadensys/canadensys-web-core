@@ -115,6 +115,7 @@ public class FreemarkerURLHelper {
 	
 	/**
 	 * Build a i18n resource path from a resource name and parameters.
+	 * Parameters will be URL-encoded.
 	 * @param lang
 	 * @param resourceName
 	 * @param params

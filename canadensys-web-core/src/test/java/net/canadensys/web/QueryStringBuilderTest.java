@@ -14,7 +14,6 @@ import org.junit.Test;
  */
 public class QueryStringBuilderTest {
 	
-
 	@Test
 	public void testQueryStringBuilder(){
 		Map<String,String> paramMap = new HashMap<String, String>();

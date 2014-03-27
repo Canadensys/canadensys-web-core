@@ -35,19 +35,6 @@
 		</developer>
 	</developers>
 	
-	<repositories>
-		<repository>
-			<id>snapshots-repo</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-	</repositories>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- maven-compiler-plugin config -->
@@ -56,7 +43,7 @@
 		
 		<canadensys-core.version>1.8</canadensys-core.version>
 		<freemarker.version>2.3.20</freemarker.version>
-		<spring.version>3.2.8.RELEASE</spring.version>
+		<spring.version>4.0.2.RELEASE</spring.version>
 		<reflections.version>0.9.9-RC1</reflections.version>
 	</properties>
 
@@ -67,11 +54,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Apache lang3 -->
 		<dependency>
 			<groupId>net.canadensys</groupId>
 			<artifactId>canadensys-core</artifactId>

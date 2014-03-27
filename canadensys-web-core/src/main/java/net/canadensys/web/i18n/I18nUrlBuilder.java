@@ -1,5 +1,6 @@
 package net.canadensys.web.i18n;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.Map;
 import net.canadensys.bundle.InMemoryResourceBundle;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.util.UriUtils;
 
 /**
  * i18n resource path builder/formatter.
@@ -25,9 +27,9 @@ public class I18nUrlBuilder {
 	 * 
 	 * @param lang
 	 * @param translationFormat where '/' is a separator, '{}' represents variable and all text represent a value
-	 * to use for inverse lookup.
+	 * to use for inverse lookup. The variables will be URL-encoded.
 	 * @param params all variables needed for translationFormat in their order of appearance or null if no variable are needed.
-	 * @return null if lang or translationFormat is null
+	 * @return url of this path starting with '/' or null if lang or translationFormat is null
 	 */
 	public static String generateI18nResourcePath(String lang, String translationFormat, String ... params){
 		
@@ -55,7 +57,11 @@ public class I18nUrlBuilder {
 			if(StringUtils.isNotBlank(currPathPart)){
 				url.append("/");
 				if(PARAM_MARKER.equals(currPathPart)){
-					url.append(params[paramId]);
+					try {
+						url.append(UriUtils.encodeFragment(params[paramId],"UTF-8"));
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
 					paramId++;
 				}
 				else{
