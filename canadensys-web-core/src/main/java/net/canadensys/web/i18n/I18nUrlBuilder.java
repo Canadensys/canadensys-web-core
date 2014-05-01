@@ -24,7 +24,7 @@ public class I18nUrlBuilder {
 	private static Map<String,InMemoryResourceBundle> resourceBundleMap = new HashMap<String, InMemoryResourceBundle>();
 	
 	/**
-	 * 
+	 * Generates a resource path from a translationFormat.
 	 * @param lang
 	 * @param translationFormat where '/' is a separator, '{}' represents variable and all text represent a value
 	 * to use for inverse lookup. The variables will be URL-encoded.

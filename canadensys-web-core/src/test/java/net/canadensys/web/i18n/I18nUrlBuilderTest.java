@@ -33,6 +33,16 @@ public class I18nUrlBuilderTest {
 	}
 	
 	/**
+	 * This is more to show the current incorrect behavior.
+	 */
+	@Test
+	public void testGenerateI18nResourcePathNonExistingLanguage(){
+		I18nTranslationHandler i18nTranslation = new I18nTranslationHandler("net.canadensys.web.i18n");
+		String url = I18nUrlBuilder.generateI18nResourcePath("it", i18nTranslation.getTranslationFormat(RESOURCES_RESOURCE_KEY), "2");
+		assertEquals("/it/ressources_fr/2",url);
+	}
+	
+	/**
 	 * Mock class that represents a annotated resource.
 	 * @author cgendreau
 	 *
