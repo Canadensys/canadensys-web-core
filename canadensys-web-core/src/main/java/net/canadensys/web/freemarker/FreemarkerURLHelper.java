@@ -1,7 +1,5 @@
 package net.canadensys.web.freemarker;
 
-import java.util.Locale;
-
 import net.canadensys.web.QueryStringBuilder;
 import net.canadensys.web.i18n.I18nUrlBuilder;
 import net.canadensys.web.i18n.annotation.I18nTranslationHandler;
@@ -123,34 +121,6 @@ public class FreemarkerURLHelper {
 	 */
 	public static String toI18nResource(String lang, String resourceName, String ... params){
 		return I18nUrlBuilder.generateI18nResourcePath(lang,i18NTranslationHandler.getTranslationFormat(resourceName),params);
-	}
-	
-	/**
-	 * 
-	 * @param hr Request object
-	 * @param currentLanguage
-	 * @param resourceName
-	 * @param params
-	 * @return
-	 */
-	public static String getLanguageSwitchPath(HttpRequestHashModel hr, String currentLanguage, String resourceName, String ... params){		
-		String targetLanguage = null;
-		//TODO find a better way to handle that
-		if(Locale.ENGLISH.getLanguage().equals(currentLanguage)){
-			targetLanguage = Locale.FRENCH.getLanguage();
-		}
-		else if(Locale.FRENCH.getLanguage().equals(currentLanguage)){
-			targetLanguage = Locale.ENGLISH.getLanguage();
-		}
-		
-		String path = I18nUrlBuilder.generateI18nResourcePath(targetLanguage,i18NTranslationHandler.getTranslationFormat(resourceName),params);
-		//prepend the context path (e.g. /explorer)
-		path = hr.getRequest().getContextPath() + path;
-		
-		if(StringUtils.isNotBlank(hr.getRequest().getQueryString())){
-			path += "?"+hr.getRequest().getQueryString();
-		}
-		return path;
 	}
 	
 	/**
