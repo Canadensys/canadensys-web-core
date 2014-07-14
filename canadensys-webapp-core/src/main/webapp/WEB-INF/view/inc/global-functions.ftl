@@ -22,4 +22,12 @@
 <#macro jsLibAsset libName>
 	<script src="${rc.getContextUrl("/assets/js/lib/"+libName)}"></script>
 </#macro>
+<#-- if link has content, create an <a> tag with href otherwise, print text only -->
+<#macro hrefIfNotEmpty text link>
+  <#if link?has_content>
+  <a href="${link}">${text}</a>
+  <#else>
+  ${text}
+  </#if>
+</#macro>
  
