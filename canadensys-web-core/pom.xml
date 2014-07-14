@@ -3,14 +3,14 @@
 	<parent>
 		<groupId>net.canadensys</groupId>
 		<artifactId>canadensys-web-core-parent</artifactId>
-		<version>0.2-SNAPSHOT</version>
+		<version>0.2</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.canadensys</groupId>
 	<artifactId>canadensys-web-core</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2</version>
 	<packaging>jar</packaging>
 	<name>Canadensys web core</name>
 	<description>The Canadensys web core library</description>
