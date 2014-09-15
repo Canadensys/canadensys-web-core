@@ -30,4 +30,11 @@
   ${text}
   </#if>
 </#macro>
+
+<#-- if variable has content, print the text+variable appended, else, print nothing -->
+<#macro printIfNotEmpty text variable="">
+  <#if variable?has_content>
+  ${text+variable}
+  </#if>
+</#macro>
  
