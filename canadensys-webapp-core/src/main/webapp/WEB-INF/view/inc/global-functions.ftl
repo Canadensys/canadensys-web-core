@@ -31,6 +31,13 @@
   </#if>
 </#macro>
 
+<#-- if url variable has content, print it with an href -->
+<#macro hrefUrl url>
+  <#if url?has_content>
+  <a href="${url}">${url}</a>
+  </#if>
+</#macro>
+
 <#-- if variable has content, print the text+variable appended, else, print nothing -->
 <#macro printIfNotEmpty text variable="">
   <#if variable?has_content>
