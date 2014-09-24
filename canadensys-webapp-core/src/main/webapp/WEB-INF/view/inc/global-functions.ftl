@@ -1,3 +1,6 @@
+<#-- tests for the regex are available in net.canadensys.web.TestURLRegex -->
+<#assign URL_REGEX = "^(https?|ftp)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[\\S ]*)?$">
+
 <#-- Format the include string for files (js,css) to handle optional minifying and versioning -->
 <#-- Produce output like file-1.3.2.min.js -->
  <#function formatFileInclude fileName version useMinified ext>
@@ -31,10 +34,14 @@
   </#if>
 </#macro>
 
-<#-- if url variable has content, print it with an href -->
-<#macro hrefUrl url>
-  <#if url?has_content>
-  <a href="${url}">${url}</a>
+<#-- if text represents an URL (according to the defined regex), print it with an href, if not, print the text -->
+<#macro hrefIfUrl text="">
+  <#if text?has_content>
+   <#if text?matches(URL_REGEX)>
+     <a href="${text}">${text}</a>
+   <#else>
+     ${text}
+   </#if>
   </#if>
 </#macro>
 
