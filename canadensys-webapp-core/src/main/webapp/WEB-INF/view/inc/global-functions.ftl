@@ -25,8 +25,9 @@
 <#macro jsLibAsset libName>
 	<script src="${rc.getContextUrl("/assets/js/lib/"+libName)}"></script>
 </#macro>
-<#macro imageAsset imageName ext>
-  <img src="${rc.getContextUrl("/assets/images/"+imageName+"."+ext)}"/>
+<#macro imageAsset imageName attributes={}>
+  <#assign keys = attributes?keys>
+  <img src="${rc.getContextUrl("/assets/images/"+imageName)}"<#list keys as key> ${key}="${attributes[key]}"</#list>/>
 </#macro>
 
 <#-- if link has content, create an <a> tag with href otherwise, print text only -->
