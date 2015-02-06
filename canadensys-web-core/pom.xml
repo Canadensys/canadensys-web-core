@@ -42,7 +42,7 @@
 		
 		<canadensys-core.version>1.8</canadensys-core.version>
 		<freemarker.version>2.3.20</freemarker.version>
-		<spring.version>4.0.2.RELEASE</spring.version>
+		<spring.version>4.0.9.RELEASE</spring.version>
 		<reflections.version>0.9.9-RC2</reflections.version>
 	</properties>
 
