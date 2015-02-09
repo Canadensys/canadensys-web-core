@@ -16,9 +16,11 @@ import com.google.common.collect.Lists;
 
 /**
  * Override of Spring's LocaleChangeInterceptor to avoid setting an invalid Locale in the LocaleResolver if
- * we do not support/understand the provided locale.
+ * the provided locale is not supported/understood 
  * 
- * The check is done on the value provided as text.
+ * The comparison of the Locale is run on the value provided as text.
+ * 
+ * Partially solves https://jira.spring.io/browse/SPR-9456
  * 
  * @author cgendreau
  *
@@ -32,27 +34,38 @@ public class SupportedLocaleChangeInterceptor extends LocaleChangeInterceptor {
 		supportedLocale.add(defaultLocale.toString());
 	}
 	
+	/**
+	 * Set the locale to use in case the provided locale is not supported.
+	 * 
+	 * @param defaultLocale
+	 * @throws IllegalStateException in case of an invalid locale specification
+	 */
 	public void setDefaultLocale(String defaultLocale){
 		this.defaultLocale = StringUtils.parseLocaleString(defaultLocale);
 	}
 	
 	/**
-	 * Comma separated list of supported locale.
+	 * Set locale(s) supported by the current web application.
 	 * 
-	 * @param supportedLocales
+	 * @param supportedLocale
+	 * @throws IllegalStateException in case of an invalid locale specification
 	 */
-	public void setSupportedLocales(String supportedLocales){
+	public void setSupportedLocale(List<String> supportedLocale){
 		this.supportedLocale.clear();
 		
-		for(String currLang : supportedLocales.split(",")){
-			this.supportedLocale.add(currLang.toLowerCase());
+		for(String currLocale : supportedLocale){
+			this.supportedLocale.add(currLocale.toLowerCase());
+			// just try to parse it, IllegalStateException will be thrown if not valid
+			StringUtils.parseLocaleString(currLocale);
 		}
 	}
 	
+	/**
+	 * Keep the original code but add a check on the Locale before setting it into the localeResolver.
+	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws ServletException {
-
 		String newLocale = request.getParameter(getParamName());
 		if (newLocale != null) {
 			LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(request);
