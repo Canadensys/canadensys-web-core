@@ -10,7 +10,7 @@
 
 	<groupId>net.canadensys</groupId>
 	<artifactId>canadensys-web-core-parent</artifactId>
-	<version>0.7</version>
+	<version>0.8-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Canadensys web core Parent Project</name>
 	<description>The Canadensys web core library</description>
