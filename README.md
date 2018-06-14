@@ -7,6 +7,8 @@ Artifacts:
 * canadensys-web-core: jar library 
 * canadensys-webapp-core: webapp folder built as war file 
 
+Available on Maven Central.
+
 Code Status
 -----------
 [![Build Status](https://travis-ci.org/Canadensys/canadensys-web-core.png)](https://travis-ci.org/Canadensys/canadensys-web-core)
