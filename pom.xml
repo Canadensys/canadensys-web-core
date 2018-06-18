@@ -60,6 +60,18 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>doclint-java8-disabled</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<properties>
+				<javadoc.opts>-Xdoclint:none</javadoc.opts>
+			</properties>
+		</profile>
+	</profiles>
+
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
@@ -72,6 +84,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -94,6 +107,9 @@
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
+						<configuration>
+							<additionalparam>${javadoc.opts}</additionalparam>
+						</configuration>
 						<goals>
 							<goal>jar</goal>
 						</goals>
