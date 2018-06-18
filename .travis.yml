@@ -1,6 +1,14 @@
 language: java
 install: mvn install -U -Dgpg.skip=true
-jdk:
-  - oraclejdk7
-  - openjdk7
-  - openjdk6
+matrix:
+ include:
+  - jdk: oraclejdk8
+    dist: trusty
+  - jdk: oraclejdk7
+    dist: precise
+  - jdk: openjdk7
+    dist: precise
+
+# openjdk7 requires hostname see https://github.com/travis-ci/travis-ci/issues/5227
+addons:
+ hostname: canadensys-web-core.dev
