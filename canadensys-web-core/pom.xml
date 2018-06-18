@@ -26,7 +26,8 @@
 		<url>git@github.com:Canadensys/canadensys-web-core.git</url>
 		<connection>scm:git:git@github.com:Canadensys/canadensys-web-core.git</connection>
 		<developerConnection>scm:git:git@github.com:Canadensys/canadensys-web-core.git</developerConnection>
-	</scm>
+	  <tag>HEAD</tag>
+  </scm>
 
 	<developers>
 		<developer>
