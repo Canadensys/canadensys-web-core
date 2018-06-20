@@ -3,14 +3,14 @@
 	<parent>
 		<groupId>net.canadensys</groupId>
 		<artifactId>canadensys-web-core-parent</artifactId>
-		<version>0.8</version>
+		<version>0.9-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.canadensys</groupId>
 	<artifactId>canadensys-web-core</artifactId>
-	<version>0.8</version>
+	<version>0.9-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Canadensys web core</name>
 	<description>The Canadensys web core library</description>
@@ -36,6 +36,8 @@
 	</developers>
 	
 	<properties>
+		<servlet-api.version>3.1.0</servlet-api.version>
+
 		<canadensys-core.version>1.8</canadensys-core.version>
 		<freemarker.version>2.3.20</freemarker.version>
 		<spring.version>4.1.9.RELEASE</spring.version>
@@ -50,7 +52,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
