@@ -1,5 +1,5 @@
-canadensys-web-core
-===================
+# canadensys-web-core
+
 Canadensys web core library.
 
 Artifacts:
@@ -24,7 +24,12 @@ The library 'canadensys-webapp-core' should be used as a WAR overlay since it in
 * Gradle: https://github.com/scalding/gradle-waroverlay-plugin
 * Maven: http://maven.apache.org/plugins/maven-war-plugin/overlays.html
 
-## Publish on Maven Central
+## Install locally
+```
+mvn clean install
+```
+
+## Publish artifacts on Maven Central
 
 Complete Instructions on Sonatype [website](https://central.sonatype.org/pages/apache-maven.html).
 
@@ -38,8 +43,24 @@ mvn clean deploy
 ### Deploy RELEASE version
 
 Change MY_RELEASE_VERSION for the next version number to release. If the current version is `0.8-SNAPSHOT`, the next
-release is `0.8`. Be careful, once the RELEASE version is deployed, it can not be removed.
+release is `0.8`. Be careful, once the RELEASE version is deployed it can not be removed from Maven Central.
 ```
 mvn versions:set -DnewVersion=MY_RELEASE_VERSION
 mvn clean deploy -P release
+```
+
+Ensure to tag the source code on GitHub:
+
+e.g.
+```
+git tag canadensys-web-core-MY_RELEASE_VERSION
+git push origin canadensys-web-core-MY_RELEASE_VERSION
+```
+
+Prepare next development version:
+```
+mvn versions:set -DnewVersion=MY_NEXT_DEV_VERSION
+git add all_pom_files
+git commit -m'prepare next development version'
+git push origin master
 ```

@@ -1,4 +1,5 @@
 language: java
+# -Dhttps.protocols=TLSv1.2 is only required for java 7, could be removed once it runs on >= Java 8
 install: mvn -Dhttps.protocols=TLSv1.2 clean install
 matrix:
  include:
